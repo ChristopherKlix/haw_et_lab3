@@ -1,0 +1,88 @@
+\part{Allgemeine Berechnungsgrundlagen}
+
+\chapter*{Allgemeine Berechnungsgrundlagen}
+
+\section*{Konzepte}
+\addcontentsline{toc}{section}{Konzepte}
+
+\begin{itemize}
+  \item Grundlagen der Netzwerkanalyse
+  \item Ermittlung einer linearen Ersatzspannungsquelle
+  \begin{itemize}
+    \item Ermittlung des Innenwiderstandes \(R_i\)
+    \item Spannung der idealen Ersatzspannungsquelle \(U_{ab}\) = Spannung zwischen den Messpunkten \(a\) \& \(b\).
+    \item Leistungsanpassung
+  \end{itemize}
+  \item Kirchoff’schen Gesetze
+  \begin{itemize}
+    \item Knotenregel:
+    \begin{description}
+        \item Die Summe aller ein und ausfliesenden Ströme in einem Knoten sind Null.
+    \end{description}
+    \item Maschenregel
+    \begin{description}
+        \item Die Summe aller Spannungen entlang eines Maschenumlaufes ist
+gleich Null.
+    \end{description}
+  \end{itemize}
+  \item Superpositionsprinzip in Schaltkreisen
+\end{itemize}
+
+\section*{Formeln}
+\addcontentsline{toc}{section}{Formeln}
+
+\subsection*{Ohm'sche Gesetz}
+
+\[
+U = R \cdot I
+\]
+
+\subsection*{Widerstände in Reihe}
+
+\[
+\sum_{i=1}^{n} R_i = R_{ges}
+\]
+
+\subsection*{Widerstände in Parallel}
+
+\[
+\sum_{i=1}^{n} \frac{1}{R_i} = R_{ges}^{-1}
+\]
+
+\[
+\left[ \sum_{i=1}^{n} \frac{1}{R_i} \right]^{-1} = R_{ges}
+\]
+
+\subsection*{Spannungsteiler}
+
+\[
+U_i = U_0 \cdot \frac{R_i}{R_{ges}}
+\]
+
+\subsection*{Leistungsanpassung für lineare Ersatzspannungsquelle}
+Leistung ist maximal, wenn \(R_i\) gleich \(R_L\) ist.
+
+\[
+P_{max} = \frac{U_0^{2}}{4R_i}
+\]
+
+\subsection*{Widerstandsmessung - Relativer Fehler bei stromrichtiger Messung}
+
+\[
+e_{rel} \approx \frac{R_{i_A}}{R_x}
+\]
+wobei \(R_x\) der zu messende Widerstand ist.
+
+\subsection*{Widerstandsmessung - Relativer Fehler bei spannungsrichtiger Messung}
+
+\[
+e_{rel} \approx -\frac{R_x}{R_{i_V}}
+\]
+wobei \(R_x\) der zu messende Widerstand ist.
+
+
+
+
+\renewcommand{\chaptername}{Versuch}
+\newpage
+\pagenumbering{arabic}

@@ -1,0 +1,205 @@
+\chapter[Widerstandsmessung]{Strom- und spannungsrichtiges Messen von Widerständen}
+
+In diesem Teilversuch sollen die drei unterschiedlichen ohmschen Widerstände
+
+\[
+R_1 = 0.22 \Omega, R_2 = 1k \Omega \text{ und } R_3 = 1M \Omega
+\]
+
+mit verschiedenen Methoden gemessen werden. Die Messmethoden sind hinsichtlich ihrer Brauchbarkeit für die einzelnen Widerstände zu vergleichen und die Ursachen der auftretenden Fehler sind zu diskutieren.
+
+\section[Ohmmeter]{Widerstandsmessung mittels Ohmmeter}
+\subsection{Versuchsbeschreibung}
+
+Zur Widerstandsmessung der drei zu messenden Widerstände wird ein Digitalmultimeter (METRAHit Tech) und ein Analogmultimeter verwendet.
+
+Gemessen wird über den Widerstand, das bedeuten ein Messpunkt liegt vor und einer nach dem Widerstand. Beim Analogmessgerät ist zu beachten, dass dieses vor jeder Messung kalibriert werden muss. Hierzu muss der Zeiger des Messgerätes so eingestellt sein, dass er einen unendlichen großen Widerstand anzeigt.
+
+Hintergrund hierfür ist, dass wenn kein Widerstand angeschlossen ist kein Strom fließt und somit nach dem Ohmischen Gesetz der Widerstand unendlich groß sein muss.
+
+\subsection{Vorbereitung}
+
+Zu Beginn wird das analoge Multimeter der entsprechenden Widerstandsgröße kalibriert.
+
+\subsection{Durchführung}
+Zur Widerstandsmessung der drei zumessenden Widerstände, wir ein Digitalmultimeter \textit{METRAHit Tech} und ein Analogmultimeter verwendet.
+
+Gemessen wird über den Widerstand, das bedeuten ein Messpunkt liegt vor und einer nach dem Widerstand. Beim Analogmessgerät ist zu beachten, dass dieses vor jeder Messung kalibriert werden muss. Hierzu muss der Zeiger des Messgerätes so eingestellt sein, dass er einen unendlichen großen Widerstand anzeigt.
+
+Hintergrund hierfür ist, dass wenn kein Widerstand angeschlossen ist, kein Strom fließt und somit nach dem Ohmischen Gesetz der Widerstand unendlich groß sein muss.
+
+\subsection{Messdaten}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{rrrrr}
+    \toprule
+        ~ & METRAHit TECH & Analog Unigor & \multicolumn{2}{c}{Derivation} \\
+        Measured resistor & \multicolumn{1}{c}{(R) Resistance} & \multicolumn{1}{c}{(R) Resistance} & \multicolumn{1}{c}{abs} & \multicolumn{1}{c}{rel \%} \\
+    \midrule
+        0.22\si{\ohm} & 0.640\si{\ohm} & ~ & 0.420\si{\ohm} & -190.91\% \\
+        1\si{\kilo\ohm} & 990.100\si{\ohm} & ~ & -9.900\si{\ohm} & 0.99\% \\
+        1\si{\mega\ohm} & 1,005,300.000\si{\ohm} & ~ & 5,300.000\si{\ohm} & -0.53\% \\
+        ~ & ~ & ~ & ~ & ~ \\
+        0.22\si{\ohm} & ~ & 1\si{\ohm} & 0.780\si{\ohm} & -354.55\% \\
+        1\si{\kilo\ohm} & ~ & 960\si{\ohm} & -40.000\si{\ohm} & 4.00\% \\
+        1\si{\mega\ohm} & ~ & 1,000,000\si{\ohm} & 0.000\si{\ohm} & 0.00\% \\
+    \bottomrule
+    \end{tabular}
+    \caption{\label{multimeter-resistor-measurement}Widerstandsmessung mittels Multimeter.}
+\end{table}
+
+\subsection{Auswertung}
+
+Zu sehen ist, dass bei einem sehr kleinen \(0.22\si{\ohm}\) Widerstand beide Geräte sehr ungenau messen, wobei das analoge Gerät sogar einen deutlich größeren relativen Fehler aufweist als das digitale.
+Bei dem \(1\si{\kilo\ohm}\) Widerstand messen beide Geräte recht genau, wobei das digitale Gerät etwas genauer misst.
+Lediglich beim dem großen \(1\si{\mega\ohm}\) Widerstand misst das analoge Gerät genauer, jedoch ist der Unterschied sehr gering. Ein Vergleich der Genauigkeit der Geräte ist nur bedingt möglich, da bei dem analogen Gerät weitere Fehlerquellen Einfluss nehmen, welche über die Qualität des Gerätes selber hinausgehen. So können Fehler bzw. Ungenauigkeiten beim händischen kalibrieren des Gerätes oder beim ablesen der Scala entstehen, wie zum Beispiel durch den Parallax-Effekt.
+
+\section[Stromrichtige Messung]{Widerstandsmessung mittles stromrichtiger Messung}
+\subsection{Versuchsbeschreibung}
+
+In diesem versuch sollen drei Widerstände mittels einer Stromrichtigen Messung ermittelt werden. Die Ergebnisse werden mit dem erwartungswert als auch mit den Ergebnissen einer späteren Spannungsrichtigen Messung verglichen.
+
+\subsection{Durchführung}
+Verschalten werden die Messgeräte wie im unten dargestellten Schaltbild, sodass der Strom durch den zu messenden Widerstand systematisch richtig erfasst wird. Als Spannungsquelle steht ein regelbares Labornetzgerät Hameg Triple Power Supply HM7042-5 zur Verfügung. Die Spannungsmessung wird mit einem Digitalmultimeter METRAHit TECH, die Strommessung mit einem METRAHit 18S durchgeführt.
+
+Die drei zu messenden Widerstände sind: \(R_1 = 0.22\Omega, R_2 = 1k\Omega \text{ und } R_3 = 1M\Omega\).
+Folgende Einstellungen sind am Labornetzgerät für die jeweiligen Widerstände einzustellen und der gemessene Strom und die gemessene Spannung abzulesen.
+
+\[
+\begin{aligned}
+R_1: I_m &= 200mA, 500mA, 800mA\\
+R_2: U_m &= 2V, 4V, 6V\\
+R_3: U_m &= 9V, 12V, 15V
+\end{aligned}
+\]
+
+\newpage
+\subsection{Messdaten}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{@{}rrrlrrrrr@{}}
+        \toprule
+        ~ & \multicolumn{3}{c}{Measurements} & \multicolumn{2}{c}{Source} & Derived & \multicolumn{2}{c}{Derivation} \\
+        Target & \multicolumn{1}{c}{(U)} & \multicolumn{1}{c}{(I)} & res & \multicolumn{1}{c}{(U)} & \multicolumn{1}{c}{(I)} & \multicolumn{1}{c}{(R)} & \multicolumn{1}{c}{abs} & \multicolumn{1}{c}{rel \%} \\
+        \midrule
+
+        Current\\accurate & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+        \midrule
+
+        \rowcolor{Gray}
+        0.22\si{\ohm} & ~ & ~ & ~ & ~ & ~ & 0.220\si{\ohm} & ~ & ~ \\
+        200\si{\milli\ampere} & 0.119\si{\volt} & 199.000\si{\milli\ampere} & (\si{\ampere}) & 0.150\si{\volt} & 199.000\si{\milli\ampere} & 0.596\si{\ohm} & 0.376\si{\ohm} & 171.13\% \\
+        500\si{\milli\ampere} & 0.295\si{\volt} & 497.000\si{\milli\ampere} & (\si{\ampere}) & 0.410\si{\volt} & 498.000\si{\milli\ampere} & 0.593\si{\ohm} & 0.373\si{\ohm} & 169.34\% \\
+        800\si{\milli\ampere} & 0.473\si{\volt} & 798.000\si{\milli\ampere} & (\si{\ampere}) & 0.660\si{\volt} & 800.000\si{\milli\ampere} & 0.592\si{\ohm} & 0.372\si{\ohm} & 169.20\% \\
+        ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+
+        \rowcolor{Gray}
+        1\si{\kilo\ohm} & ~ & ~ & ~ & ~ & ~ & 1,000.00\si{\ohm} & ~ & ~ \\
+        2\si{\volt} & 2.015\si{\volt} & 1.930\si{\milli\ampere} & (\si{\milli\ampere}) & ~ & ~ & 1,044.04\si{\ohm} & 44.041\si{\ohm} & 4.40\% \\
+        4\si{\volt} & 4.010\si{\volt} & 4.043\si{\milli\ampere} & (\si{\milli\ampere}) & ~ & ~ & 991.84\si{\ohm} & -8.162\si{\ohm} & -0.82\% \\
+        6\si{\volt} & 6.009\si{\volt} & 6.061\si{\milli\ampere} & (\si{\milli\ampere}) & ~ & ~ & 991.42\si{\ohm} & -8.579\si{\ohm} & -0.86\% \\
+        ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+
+        \rowcolor{Gray}
+        1\si{\mega\ohm} & ~ & ~ & ~ & ~ & ~ & 1,000,000\si{\ohm} & ~ & ~ \\
+        9\si{\volt} & 9.025\si{\volt} & 0.009\si{\milli\ampere} & (\si{\milli\ampere}) & ~ & ~ & 1,002,778\si{\ohm} & 2,777.778\si{\ohm} & 0.28\% \\
+        12\si{\volt} & 12.020\si{\volt} & 0.012\si{\milli\ampere} & (\si{\milli\ampere}) & ~ & ~ & 977,236\si{\ohm} & -22,764.228\si{\ohm} & -2.28\% \\
+        15\si{\volt} & 15.010\si{\volt} & 0.015\si{\milli\ampere} & (\si{\milli\ampere}) & ~ & ~ & 1,000,667\si{\ohm} & 666.667\si{\ohm} & 0.07\% \\
+        ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+
+        \midrule
+        Voltage\\accurate & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+        \midrule
+
+        \rowcolor{Gray}
+        0.22\si{\ohm} & ~ & ~ & ~ & ~ & ~ & 0.220\si{\ohm} & ~ & ~ \\
+        200\si{\milli\ampere} & 0.051\si{\volt} & 203.300\si{\milli\ampere} & (\si{\ampere}) & 0.180\si{\volt} & 0.200 A & 0.253\si{\ohm} & 0.033\si{\ohm} & 14.92\% \\
+        500\si{\milli\ampere} & 0.131\si{\volt} & 512.000\si{\milli\ampere} & (\si{\ampere}) & 0.450\si{\volt} & 0.503 A & 0.256\si{\ohm} & 0.036\si{\ohm} & 16.21\% \\
+        800\si{\milli\ampere} & 0.204\si{\volt} & 802.500\si{\milli\ampere} & (\si{\ampere}) & 0.070\si{\volt} & 0.800 A & 0.254\si{\ohm} & 0.034\si{\ohm} & 15.55\% \\
+        ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+
+        \rowcolor{Gray}
+        1\si{\kilo\ohm} & ~ & ~ & ~ & ~ & ~ & 1,000.00\si{\ohm} & ~ & ~ \\
+        2\si{\volt} & 1.913\si{\volt} & 1.933\si{\milli\ampere} & (\si{\milli\ampere}) & 2.000\si{\volt} & 0.002 A & 989.55\si{\ohm} & -10.449\si{\ohm} & -1.04\% \\
+        4\si{\volt} & 4.008\si{\volt} & 4.048\si{\milli\ampere} & (\si{\milli\ampere}) & 4.000\si{\volt} & 0.004 A & 990.12\si{\ohm} & -9.881\si{\ohm} & -0.99\% \\
+        6\si{\volt} & 6.004\si{\volt} & 6.066\si{\milli\ampere} & (\si{\milli\ampere}) & 6.000\si{\volt} & 0.005 A & 989.78\si{\ohm} & -10.221\si{\ohm} & -1.02\% \\
+        ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\
+
+        \rowcolor{Gray}
+        1\si{\mega\ohm} & ~ & ~ & ~ & ~ & ~ & 1,000,000\si{\ohm} & ~ & ~ \\
+        9\si{\volt} & 9.020\si{\volt} & 0.010\si{\milli\ampere} & (\si{\milli\ampere}) & 9.000\si{\volt} & 0.000 A & 909,274\si{\ohm} & -90,725.806\si{\ohm} & -9.07\% \\
+        12\si{\volt} & 12.000\si{\volt} & 0.013\si{\milli\ampere} & (\si{\milli\ampere}) & 12.000\si{\volt} & 0.000 A & 907,029\si{\ohm} & -92,970.522\si{\ohm} & -9.30\% \\
+        15\si{\volt} & 15.010\si{\volt} & 0.017\si{\milli\ampere} & (\si{\milli\ampere}) & 15.000\si{\volt} & 0.000 A & 906,949\si{\ohm} & -93,051.360\si{\ohm} & -9.31\% \\
+    \bottomrule
+    \end{tabular}
+    \caption{\label{current-voltage-accurate-resistors-measurements}Widerstandsmessung.}
+\end{table}
+
+\newpage
+\subsection{Auswertung}
+
+\paragraph{0.22\si{\ohm}:}
+weist einen gemittelten widerstand 0.594\si{\ohm} auf, welcher einem relativen Fehler von 169.85\% entspricht.
+
+\paragraph{1\si{\kilo\ohm}:}
+weist einen gemittelten widerstand 1009.10\si{\ohm} auf, welcher einem relativen Fehler von 0.91\% entspricht.
+
+\paragraph{1\si{\mega\ohm}:}
+weist einen gemittelten widerstand 993.560\si{\ohm} auf, welcher einem relativen Fehler von -0.64\% entspricht.
+
+\paragraph{}
+Hier ist zu erkennen, dass sehr kleine Widerstände schlechter zu messen sind. Da bei dieser Messung das Amperemeter und so dessen Innenwiderstand mit dem zu messenden Widerstand in Reihe geschaltet ist, und die Spannung über beiden Widerständen gemessen wird, nimmt dieser direkt Einfluss auf die Messung. Im Idealfall wäre dieser Innenwiderstand unendlich klein und würde dann keinen Fehler verursachen. Doch dies ist offensichtlich nicht möglich.  Da nun der sehr kleine widerstand des Messgerätes und der sehr kleine zu messendem Widerstand in den Dimensionen sehr nah beieinander liegen ist der dabei entstehende Fehler nicht trivial.
+
+Zusätzlich werden die Leiterwiderstände bei der Messung von kleinen Widerständen relevant.
+
+\begin{align}
+    e_{rel} &= \frac{R_{x,m} - R_x}{R_x} = \frac{R_i}{\frac{U_m}{I_m} - R_i} \approx \frac{R_i}{R_x}
+\end{align}
+
+Daraus ist zu erwarten, dass größere Widerstände genauer gemessen werden, was auch durch die Ergebnisse bestätigt wird.
+
+\section[Spannungsrichtige Messung]{Widerstandsmessung mittles spannungsrichtiger Messung}
+\subsection{Versuchsbeschreibung}
+In diesem versuch sollen drei Widerstände mittels einer Spannungsrichtigen Messung ermittelt werden. Die Ergebnisse werden mit den Erwartungswerten als auch mit den Ergebnissen der vorrangegangen Stromrichtigen Messung verglichen.
+
+\subsection{Durchführung}
+Verschalten werden die Messgeräte wie im unten dargestellten Schaltbild, sodass die Spannung durch den zu messenden Widerstand systematisch richtig erfasst wird. Als Spannungsquelle steht ein regelbares Labornetzgerät Hameg Triple Power Supply HM7042-5 zur Verfügung. Die Spannungsmessung wird mit einem Digitalmultimeter METRAHit TECH, die Strommessung mit einem METRAHit 18S durchgeführt.
+
+Die drei zu messenden Widerstände sind: \(R_1 = 0.22\Omega, R_2 = 1k\Omega \text{ und } R_3 = 1M\Omega\).
+Folgende Einstellungen sind am Labornetzgerät für die jeweiligen Widerstände einzustellen und der gemessene Strom und die gemessene Spannung abzulesen.
+
+\[
+\begin{aligned}
+R_1: I_m &= 200mA, 500mA, 800mA\\
+R_2: U_m &= 2V, 4V, 6V\\
+R_3: U_m &= 9V, 12V, 15V
+\end{aligned}
+\]
+
+\subsection{Messdaten}
+
+Siehe Tabelle \ref{current-voltage-accurate-resistors-measurements}.
+
+\subsection{Auswertung}
+
+\paragraph{0.22\si{\ohm}:}
+weist einen gemittelten widerstand 0.254\si{\ohm} auf, welcher einem relativen Fehler von 15.61\% entspricht.
+
+\paragraph{1\si{\kilo\ohm}:}
+weist einen gemittelten widerstand 989.82\si{\ohm} auf, welcher einem relativen Fehler von -1.02\% entspricht.
+
+\paragraph{1\si{\mega\ohm}:}
+weist einen gemittelten widerstand 907.751\si{\ohm} auf, welcher einem relativen Fehler von -9.22\% entspricht.
+
+\paragraph{}
+Hier ist zu erkennen das der 1\si{\kilo\ohm} sich am genausten bestimmen lässt und der 1\si{\mega\ohm} Widerstand sich schlechter erfassen lässt. In der Theorie müsste sich der 0.22\si{\ohm} Widerstand am genausten bestimmen lassen, da bei der Spannungsrichtigen Messung die Spannung nur über dem zu messenden Widerstand gemessen wird. Somit ist der innenwiderstand des Voltmeters die Ursache für Messfehler. Da dieser hier sehr groß ist (idealer Weise unendlich groß) fallen die Fehler bei kleinen zu messenden Widerständen klein aus.
+
+Entgegen dessen weist die Messung des 0.22\si{\ohm} Widerstandes den größten Fehler auf, was wahrscheinlich auf den hier im Verhältnis zum Messwiderstand großen Leiterwiderstand zurückzuführen ist.
+
+\begin{align}
+    e_{rel} &= \frac{R_{x,m} - R_x}{R_x} = \frac{R_i}{\frac{U_m}{I_m} - R_i} \approx \frac{R_i}{R_x}
+\end{align}
+
+Abschließend ist zu sagen, dass sich die stromrichtige Messung für große Widerstände und die spannungsrichtige Messung für kleine Widerstände besser geeignet sind. Allerdings nur in einem Bereich, wo die Leiterwiederstände einen zu vernachlässigbaren Anteil am Gesamtwiderstand haben.

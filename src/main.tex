@@ -1,0 +1,54 @@
+% LaTeX Template for short student reports.
+% Citations should be in bibtex format and go in references.bib
+\documentclass[a4paper, 11pt]{report}
+\usepackage[top=3cm, bottom=3cm, left = 2cm, right = 2cm]{geometry}
+\geometry{a4paper}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage[pdftex,bookmarks,colorlinks,breaklinks]{hyperref}
+\hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} % black links, for printed output
+\usepackage{color, colortbl,soul}
+\definecolor{Gray}{gray}{0.9}
+\usepackage{memhfixc}
+\usepackage{pdfsync}
+\usepackage{fancyhdr}
+\usepackage{circuitikz}
+\usepackage{lipsum}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{subfiles}
+
+\DeclareRobustCommand{\eqref}[1]{\eqrefaux#1\eqrefaux}
+\def\eqrefaux eq#1\eqrefaux{\textup{(#1)}}
+
+\renewcommand{\partname}{}
+\renewcommand{\chaptername}{Versuch}
+
+\pagestyle{fancy}
+
+\title{ETP1 Lab 3 Report}
+\author{Jan-Malte Lübcke, Christopher Klix, Jannik Erdmann, Raphael Weinhart}
+%\date{}
+
+\begin{document}
+\pagenumbering{Roman}
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+
+\subfile{parts/part_00/00_zielsetzung}
+
+\subfile{parts/part_01/01_allgemeine_berechnungsgrundlagen}
+
+\subfile{parts/part_02/02_versuche}
+
+% \bibliographystyle{abbrv}
+% \bibliography{references}  % need to put bibtex references in references.bib
+
+\end{document}
