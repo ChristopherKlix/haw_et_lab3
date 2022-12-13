@@ -112,17 +112,17 @@ Es wird die jeweilige Spannung \( U_{ab} \) erfasst.
                 xlabel={[R] Resistance},
                 ylabel={[U] Voltage},
                 grid,
-                xmin=400,
-                xmax=1300,
+                xmin=300,
+                xmax=1400,
                 ymin=-1,
                 ymax=1,
                 samples = 50,
-                domain=400:1300,
+                domain=300:1300,
                 legend pos=north east,
                 tick align=inside
             ]
-            \addplot[cyan, no marks, smooth, ultra thick] table[col sep=comma, x=resistance, y=voltage]{./data/measurement_01.csv};
-            \addplot[red, no marks, smooth, ultra thick] table[col sep=comma, x=resistance, y=voltage]{./data/measurement_02.csv};
+            \addplot[cyan, mark=asterisk, smooth, ultra thick] table[col sep=comma, x=resistance, y=voltage]{./data/measurement_01.csv};
+            \addplot[red, mark=asterisk, smooth, ultra thick] table[col sep=comma, x=resistance, y=voltage]{./data/measurement_02.csv};
 
             \addlegendentry{[$a_1$] Messung 1}
             \addlegendentry{[$a_2$] Messung 2}
@@ -151,7 +151,7 @@ Es wird die jeweilige Spannung \( U_{ab} \) erfasst.
         \centering
         \begin{tabular}{rrr}
             \toprule
-                ~        & \multicolumn{1}{c}{300 \si{\ohm}} & \multicolumn{1}{c}{600 \si{\ohm}}   \\
+                $\Delta R$ & \multicolumn{1}{c}{300 \si{\ohm}} & \multicolumn{1}{c}{600 \si{\ohm}}   \\
             \midrule
                 $U_{ab}$ & 0.643\si{\volt}  & 1.286\si{\volt}   \\
                 ~ & ~ \\
@@ -164,7 +164,7 @@ Es wird die jeweilige Spannung \( U_{ab} \) erfasst.
         \centering
         \begin{tabular}{rrr}
             \toprule
-                ~        & \multicolumn{1}{c}{330 \si{\ohm}} & \multicolumn{1}{c}{1230 \si{\ohm}}   \\
+                $\Delta R$ & \multicolumn{1}{c}{330 \si{\ohm}} & \multicolumn{1}{c}{1230 \si{\ohm}}   \\
             \midrule
                 $U_{ab}$ & 2.34\si{\volt}  & 8.71\si{\volt}   \\
                 ~ & ~ \\
@@ -176,6 +176,57 @@ Es wird die jeweilige Spannung \( U_{ab} \) erfasst.
     \caption{Spannungsberechnung der Wheatstonebrücke.}
     \label{tab:wheatstonebridge-voltage-calculation}
 \end{table}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[
+            scale=1,
+            node/.style={circle,fill=blue!20, minimum size=0.5cm},
+            main node/.style={circle,draw,font=\sffamily\Large\bfseries}
+        ]
+        \begin{axis}
+            [
+                xlabel={[R] Resistance},
+                ylabel={[U] Voltage},
+                grid,
+                xmin=200,
+                xmax=1400,
+                ymin=-1,
+                ymax=9,
+                samples = 50,
+                domain=300:1300,
+                legend pos=outer north east,
+                tick align=inside
+            ]
+            \addplot[cyan, mark=asterisk, smooth, dotted, ultra thick] table[col sep=comma, x=resistance, y=voltage]{./data/measurement_01.csv};
+            \addplot[red, mark=asterisk, smooth, dotted, ultra thick] table[col sep=comma, x=resistance, y=voltage]{./data/measurement_02.csv};
+            \addplot [only marks, mark=*] table {
+            300 0.643
+            };
+            \addplot [only marks, mark=square*] table {
+            600 1.286
+            };
+            \addplot [only marks, mark=o] table {
+            330 2.34
+            };
+            \addplot [only marks, mark=square] table {
+            1230 8.71
+            };
+            % \node[main node, label=right:{$x-1$}] (n1) at (40,4) {1};
+            % \filldraw[black] (11,200) circle (0pt) node[anchor=south]{$a_1$};
+
+            \addlegendentry{[$a_1$] Messung 1}
+            \addlegendentry{[$a_2$] Messung 2}
+            \addlegendentry{[$a_1$] \( \Delta R = 300 \si{\ohm} \)}
+            \addlegendentry{[$a_1$] \( \Delta R = 600 \si{\ohm} \)}
+            \addlegendentry{[$a_2$] \( \Delta R = 330 \si{\ohm} \)}
+            \addlegendentry{[$a_2$] \( \Delta R = 1230 \si{\ohm} \)}
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Plot der Spannungsberechnung der Wheatstonebrücke.}
+    \label{fig:wheatstonebridge-voltage-calculation}
+\end{figure}
 
 \newpage
 
