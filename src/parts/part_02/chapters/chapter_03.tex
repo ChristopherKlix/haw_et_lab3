@@ -48,7 +48,7 @@ Die Spannung \( U_{ab} \) wird mit einem Multimeter \textit{METRAHit Tech} gemes
 
 Im ersten Messdurchlauf werden für die Widerstandsverhältnis
 \begin{align}
-    \frac{R_4}{R_3} = \frac{1 \si{\kilo\ohm}}{1 \si{\kilo\ohm}}
+    a_1 = \frac{R_4}{R_3} = \frac{1 \si{\kilo\ohm}}{1 \si{\kilo\ohm}}
 \end{align}
 gewählt.
 Der Widerstand \( R_1 \) wird an der Widerstandsdekade auf \( 700 \si{\ohm} \).
@@ -62,7 +62,7 @@ Es wird die jeweilige Spannung \( U_{ab} \) erfasst.
 
 Im zweiten Messdurchlauf werden für die Widerstandsverhältnis
 \begin{align}
-    \frac{R_4}{R_3} = \frac{100 \si{\ohm}}{1 \si{\kilo\ohm}}
+    a_2 = \frac{R_4}{R_3} = \frac{100 \si{\ohm}}{1 \si{\kilo\ohm}}
 \end{align}
 gewählt.
 Der Widerstand \( R_1 \) wird an der Widerstandsdekade auf \( 700 \si{\ohm} \).
@@ -73,6 +73,10 @@ Es wird die jeweilige Spannung \( U_{ab} \) erfasst.
 
 \section[Messdaten]{Messdaten}
 
+\begin{align*}
+    a_1 = 1 \quad \text{und} \quad a_2 = 0.1
+\end{align*}
+
 \begin{table}[!h]
     \centering
     \begin{tabular}{rrr}
@@ -82,7 +86,7 @@ Es wird die jeweilige Spannung \( U_{ab} \) erfasst.
     \midrule
 
     \rowcolor{Gray}
-        ~                 & Messung 1        & Messung 2         \\
+        ~                 & [$a_1$] Messung 1  & [$a_2$] Messung 2         \\
         400\si{\ohm}      & 0.820\si{\volt}  & 0.349\si{\volt}   \\
         500\si{\ohm}      & 0.500\si{\volt}  & 0.192\si{\volt}   \\
         600\si{\ohm}      & 0.231\si{\volt}  & 0.082\si{\volt}   \\
@@ -96,8 +100,84 @@ Es wird die jeweilige Spannung \( U_{ab} \) erfasst.
         ~ & ~ \\
     \bottomrule
     \end{tabular}
-    \caption{\label{wheatstonebridge-voltage-measurement}Spannungsmessung der Wheatstonebrücke.}
+    \caption{Spannungsmessung der Wheatstonebrücke.}
+    \label{wheatstonebridge-voltage-measurement}
 \end{table}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}
+            [
+                xlabel={[R] Resistance},
+                ylabel={[U] Voltage},
+                grid,
+                xmin=400,
+                xmax=1300,
+                ymin=-1,
+                ymax=1,
+                samples = 50,
+                domain=400:1300,
+                legend pos=north east,
+                tick align=inside
+            ]
+            \addplot[cyan, no marks, smooth, ultra thick] table[col sep=comma, x=resistance, y=voltage]{./data/measurement_01.csv};
+            \addplot[red, no marks, smooth, ultra thick] table[col sep=comma, x=resistance, y=voltage]{./data/measurement_02.csv};
+
+            \addlegendentry{[$a_1$] Messung 1}
+            \addlegendentry{[$a_2$] Messung 2}
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Plot der Spannungsmessung der Wheatstonebrücke.}
+    \label{fig:wheatstonebridge-voltage-measurement}
+\end{figure}
+
+\newpage
+
+\section[Berechnungen]{Berechnungen}
+
+\begin{align}
+    U_{ab} = U_0 \cdot \frac{a}{(1 + a) ^ 2} \cdot \frac{\Delta R_1}{R_1}
+\end{align}
+
+\begin{align}
+    a_1 &= \frac{1 \si{\kilo\ohm}}{1 \si{\kilo\ohm}} \quad \Rightarrow R_1 = 700 \si{\ohm}\\
+    a_2 &= \frac{100 \si{\ohm}}{1 \si{\kilo\ohm}} \quad \Rightarrow R_1 = 70 \si{\ohm}
+\end{align}
+
+\begin{table}[h]
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{rrr}
+            \toprule
+                ~        & \multicolumn{1}{c}{300 \si{\ohm}} & \multicolumn{1}{c}{600 \si{\ohm}}   \\
+            \midrule
+                $U_{ab}$ & 0.643\si{\volt}  & 1.286\si{\volt}   \\
+                ~ & ~ \\
+            \bottomrule
+        \end{tabular}
+        \caption{Spannungsberechnung für $a_1$.}
+        \label{tab:wheatstonebridge-voltage-calculation-a1}
+    \end{subtable}
+    \begin{subtable}[h]{0.45\textwidth}
+        \centering
+        \begin{tabular}{rrr}
+            \toprule
+                ~        & \multicolumn{1}{c}{330 \si{\ohm}} & \multicolumn{1}{c}{1230 \si{\ohm}}   \\
+            \midrule
+                $U_{ab}$ & 2.34\si{\volt}  & 8.71\si{\volt}   \\
+                ~ & ~ \\
+            \bottomrule
+        \end{tabular}
+        \caption{Spannungsberechnung für $a_2$.}
+        \label{tab:wheatstonebridge-voltage-calculation-a2}
+    \end{subtable}
+    \caption{Spannungsberechnung der Wheatstonebrücke.}
+    \label{tab:wheatstonebridge-voltage-calculation}
+\end{table}
+
+\newpage
 
 \section[Auswertung]{Auswertung}
 
