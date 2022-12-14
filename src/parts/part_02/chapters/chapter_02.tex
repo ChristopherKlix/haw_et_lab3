@@ -1,16 +1,69 @@
 \chapter[Wheatstonebrücke]{Bestimmung des Widerstandes eines Dehnungsmessstreifens nach dem Abgleichverfahren mit einer Wheatstonebrücke}
 
-foo
+Die Brückenschaltung ist gemäß der Schaltung \ref{cir:ablgeich-wheatstone-bridge} aufzubauen.
+Für \( R_1 \) ist der Dehnungsmessstreifen-Widerstand des unbelasteten Biegebalkens zu verwenden.
+Der Widerstand \( R_2 \) ist mit einer Präzisionswiderstandsdekade \textit{Typ 4107} aufzubauen.
+Für die Referenz-Widerstände \( R_3 \) und \( R_4 \) sind Präzisionswiderstände mit \( 1k\si{\ohm} \) aus dem \textit{hps Board} zu verwenden.
 
-\section[Ohmmeter]{Widerstandsmessung mittels Ohmmeter}
+\begin{figure}[!h]\centering
+    \vspace*{0.7cm}
+    \begin{circuitikz}[american, scale = 0.7]
+    \draw
+    (0,0) to[european voltage source, l=$U_0$] (0,6)
+
+    (0,6) to[short, -*] (6,6)
+          to[resistor, l=$R_1$] (6,3)
+
+    (6,6) to[short, -*] (12,6)
+          to[resistor, l=$R_3$] (12,3)
+
+    (6,3) to[short, *-o] (7,3)
+    (7,3) node[label=$a$] {}
+    (12,3) to[short, *-o] (11,3)
+    (11,3) node[label=$b$] {}
+
+    (7,3) to[voltmeter, l=$U_{ab}$] (11,3)
+
+    (6,3) to[potentiometer, l=$R_2$] (6,0)
+    (12,3) to[resistor, l=$R_4$] (12,0)
+
+    (0,0) to[short, -*] (6,0)
+          to[short, -*] (12,0)
+
+    % (2.5,6.2) node[label={[font=\footnotesize]east:$I_M$}] {}
+    % (4.3,4) node[label={[font=\footnotesize]east:$U_M$}] {}
+
+    % (7.5,4) node[label={[font=\footnotesize]east:Long distance}] {}
+    ;
+    \end{circuitikz}
+    \caption{Abgeglichene Wheatstonebrücke zur Bestimmung von $R_1$} \label{cir:ablgeich-wheatstone-bridge}
+\end{figure}
+
+Die Versorgunsspannung \( U_0 \) ist auf \( 6\si{\volt} \) einzustellen.
+Die Spannung \( U_{ab} \) wird mit einem Multimeter \textit{METRAHit TECH} gemessen.
+Die Brückenspannung \( U_{ab} \) ist durch Veränderung des Widerstandes \( R_2 \) über die Präzisions-Widerstandsdekade abzugleichen.
+Der Widerstand \( R_1 \) ist unter den Abgleichbedingungen und der Kenntnis über \( R_2 \) und \( R_3 \) und \( R_4 \) zu bestimmen.
+
+\section[Widerstandsmessung]{Widerstandsmessung mittels Wheatstonebrücke}
 \subsection{Durchführung}
 
-foo
+Die Brückenschaltung wurde gemäß der Schaltung \ref{cir:ablgeich-wheatstone-bridge} aufgebaut.
+Die Widerstandsdekade \( R_2 \) wurde stufenweise verstellt,
+bis das Multimeter einen Abgleich von \( 0\si{\volt} \) anzeigt hat.
 
-\subsection{Messdaten}
+\section{Messdaten}
 
-foo
+\begin{align}
+    R_2 = 699.6 \si{\ohm}
+\end{align}
 
-\subsection{Auswertung}
+\section{Auswertung}
 
-foo
+Aufgrund des Prinzips der Wheatstonebrücke und der Messung aus Versuch 1,
+dass der unbelastete Widerstand des Dehnungsmessstreifens \( 700 \si{\milli\ohm } \) beträgt,
+wurde vorher schon vermutet,
+dass sich ein Abgleich bei \( R_2 \approx 700 \si{\ohm} \) einstellt.
+Ein Abgleich der Messbrücke, i.e., \( U_{ab} = 0 \si{\volt} \),
+wurde bei \( R_2 = 699.6 \si{\ohm} \) erreicht.
+Die Abweichung zu Versuch 1 ergibt sich durch die Widerstandsmessung
+über die Spannung (Messbrücke) und der Toleranz der Widerstände \( R_2 \) und \( R_3 \) und \( R_4 \).
