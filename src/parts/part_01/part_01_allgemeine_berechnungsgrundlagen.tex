@@ -33,56 +33,90 @@ gleich Null.
 
 \subsection*{Ohm'sche Gesetz}
 
-\[
-U = R \cdot I
-\]
+\begin{align}
+    U = R \cdot I
+\end{align}
 
 \subsection*{Widerstände in Reihe}
 
-\[
-\sum_{i=1}^{n} R_i = R_{ges}
-\]
+\begin{align}
+    \sum_{i=1}^{n} R_i = R_{ges}
+\end{align}
 
 \subsection*{Widerstände in Parallel}
 
-\[
-\sum_{i=1}^{n} \frac{1}{R_i} = R_{ges}^{-1}
-\]
-
-\[
-\left[ \sum_{i=1}^{n} \frac{1}{R_i} \right]^{-1} = R_{ges}
-\]
+\begin{align}
+    \begin{split}
+        \sum_{i=1}^{n} \frac{1}{R_i} = R_{ges}^{-1} \\
+        \left[ \sum_{i=1}^{n} \frac{1}{R_i} \right]^{-1} = R_{ges}
+    \end{split}
+\end{align}
 
 \subsection*{Spannungsteiler}
 
-\[
-U_i = U_0 \cdot \frac{R_i}{R_{ges}}
-\]
+\begin{align}
+    U_i = U_0 \cdot \frac{R_i}{R_{ges}}
+\end{align}
 
 \subsection*{Leistungsanpassung für lineare Ersatzspannungsquelle}
 Leistung ist maximal, wenn \(R_i\) gleich \(R_L\) ist.
 
-\[
-P_{max} = \frac{U_0^{2}}{4R_i}
-\]
+\begin{align}
+    P_{max} = \frac{U_0^{2}}{4R_i}
+\end{align}
 
 \subsection*{Widerstandsmessung - Relativer Fehler bei stromrichtiger Messung}
 
-\[
-e_{rel} \approx \frac{R_{i_A}}{R_x}
-\]
+\begin{align}
+    e_{rel} \approx \frac{R_{i_A}}{R_x}
+\end{align}
 wobei \(R_x\) der zu messende Widerstand ist.
 
 \subsection*{Widerstandsmessung - Relativer Fehler bei spannungsrichtiger Messung}
 
-\[
-e_{rel} \approx -\frac{R_x}{R_{i_V}}
-\]
+\begin{align}
+    e_{rel} \approx -\frac{R_x}{R_{i_V}}
+\end{align}
 wobei \(R_x\) der zu messende Widerstand ist.
 
-
-
-
-\renewcommand{\chaptername}{Versuch}
 \newpage
-\pagenumbering{arabic}
+
+\subsection*{Brückenempfindlichkeit}
+
+Änderung von \( U_{ab} \) in Abhängigkeit von \( R_1 \) im Ablgeichpunkt.
+
+\begin{align}
+    E_0 &= \frac{ \text{d} U_{ab} }{ \text{d} R_1 }
+    \approx \frac{ \Delta U_{ab} }{ \Delta R_1 }
+    = \frac{ U_{ab} }{ \Delta R_1 }
+    \quad \text{für } \frac{R_1}{R_2} = \frac{R_3}{R_4}
+\end{align}
+
+Für \( \Delta R_1 \ll R_1 \) ergibt sich mit:
+
+\begin{align}
+    \begin{split}
+        \frac{ U_{ab} }{ U_0 } &\approx \frac{ a }{ \left( 1 + a \right)^2 } \cdot \frac{ \Delta R_1 }{ R_1 } \\
+        \iff \quad U_{ab} &\approx \frac{ a }{ \left( 1 + a \right)^2 } \cdot \frac{ \Delta R_1 }{ R_1 } \cdot U_0
+    \end{split}
+\end{align}
+
+Daher:
+
+\begin{align}
+    \begin{split}
+        E_0 &= \frac{ a }{ \left( 1 + a \right)^2 } \cdot \frac{ U_0 }{ R_1 }
+    \end{split}
+\end{align}
+
+\subsection*{Brückenverhältnis}
+
+\begin{align}
+    a &= \frac{ R_2 }{ R_1 } = \frac{ R_4 }{ R_3 }
+\end{align}
+
+\subsection*{Relative Verstimmung der Brücke}
+
+\begin{align}
+    v &= \frac{ \Delta R_1 }{ R_1 }
+\end{align}
