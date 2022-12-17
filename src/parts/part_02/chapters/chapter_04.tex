@@ -1,6 +1,16 @@
 \chapter[Wägeeinrichtung (Viertelbrücke)]{Aufbau einer Wägeeinrichtung mit dem Biegestab (Viertelbrücke)}
 
-\lipsum[1]
+Eine Wägeeinrichtung mit Brückenschaltung ist nach Schaltskizze \ref{cir:quarter-bridge}
+aufzubauen und zu untersuchen.
+Für \( R_1 \) ist der Widerstand \( R_1 \) der 4 Dehnungsmessstreifen-Widerstände
+des Biegebalkens zu verwenden.
+\( R_3 \) und \( R_4 \) sind Präzisionswiderstände mit
+\begin{align}
+    R_3 = R_4 = 1 \si{\kilo\ohm} \quad (0.02 \% \quad \text{Toleranz})
+\end{align}
+aus dem \textit{hps Board}.
+Die Versorgunsspannung beträgt \( U_0 = 6 \si{\volt} \).
+Die Brückenspannung \( U_{ab} \) wird mit einem Digitalmultimeter \textit{METRAHit TECH} gemessen.
 
 \begin{figure}[!h]\centering
     \vspace*{0.7cm}
@@ -11,7 +21,7 @@
     (0,6) to[short, -*] (6,6)
           to[variable resistor, l=$R_1$] (6,3)
 
-    (6,6) to[short, -*] (12,6)
+    (6,6) to[short, -] (12,6)
           to[resistor, l=$R_3$] (12,3)
 
     (6,3) to[short, *-o] (7,3)
@@ -25,7 +35,7 @@
     (12,3) to[resistor, l=$R_4$] (12,0)
 
     (0,0) to[short, -*] (6,0)
-          to[short, -*] (12,0)
+          to[short, -] (12,0)
 
     % (2.5,6.2) node[label={[font=\footnotesize]east:$I_M$}] {}
     % (4.3,4) node[label={[font=\footnotesize]east:$U_M$}] {}
@@ -36,6 +46,80 @@
     \caption{Wägeeinrichtung (Viertelbrücke)} \label{cir:quarter-bridge}
 \end{figure}
 
-\lipsum[1]
+Die Brückenspannung ist ohne Belastung des Biegebalkens
+durch Variation von \( R_2 \) so gut wie möglich
+auf \( U_{ab} = 0 \si{\volt} \) abzugleichen.
+Es ist die Brückenspannung \( U_{ab} \) bei Belastung des Biegebalkens mit:
+\begin{align}
+    m = 0 \si{\gram}, 100 \si{\gram}, 200 \si{\gram}, 300 \si{\gram}, 400 \si{\gram}, 500 \si{\gram}
+\end{align}
+zu messen.
+Die Empfindlichkeit der Anordung für \( m = 500 \si{\gram} \) ist zu bestimmen.
+
+\section[Vorbereitung]{Vorbereitung}
+Siehe Berechnungsgrundlagen für Brückenempfindlichkeit.
 
 \section[Messung]{Messung}
+Die Schaltung wurde gemäß der Versuchsbeschreibung aufgebaut.
+Der Biegebalken ist unbelastet.
+Die Widerstandsdekade \( R_2 \) wurde stufenweise verstellt,
+bis das Multimeter einen Abgleich von \( 0 \si{\volt} \) anzeigt hat.
+
+Der Biegebalken wurde nacheinander mit den Gewichten
+\( m = 0 \si{\gram}, 100 \si{\gram}, 200 \si{\gram}, 300 \si{\gram}, 400 \si{\gram}, 500 \si{\gram} \)
+belastet und die Brückenspannung \( U_{ab} \) wurde vom Multimeter abgetragen.
+Die Empfindlichkeit der Brücke wurde für \( m = 500 \si{\gram} \) errechnet.
+
+\section[Messdaten]{Messdaten}
+
+\begin{align*}
+    R_1 \quad \text{at} \quad 0 \si{\ohm} &= 700.7 \si{\ohm} \\
+    R_2 &= 700.3 \si{\ohm}
+\end{align*}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{rrr}
+    \toprule
+        ~                 & \multicolumn{1}{c}{METRAHit TECH}    \\
+        ~                 & \multicolumn{1}{c}{(U) Voltage}      \\
+    \midrule
+          0\si{\gram}      &  0.0000\si{\volt}  \\
+        100\si{\gram}      & -0.0004\si{\volt}  \\
+        200\si{\gram}      & -0.0006\si{\volt}  \\
+        300\si{\gram}      & -0.0008\si{\volt}  \\
+        400\si{\gram}      & -0.0011\si{\volt} \\
+        500\si{\gram}      & -0.0013\si{\volt} \\
+        ~ & ~ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Spannungsmessung der Viertelbrücke.}
+    \label{tab:quarter-bridge-voltage-measurement}
+\end{table}
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}
+            [
+                xlabel={[g] Weight},
+                ylabel={[V] Voltage},
+                grid,
+                xmin=0,
+                xmax=500,
+                ymin=-0.002,
+                ymax=0.002,
+                samples = 50,
+                domain=0:500,
+                legend pos=north east,
+                tick align=inside
+            ]
+            \addplot[cyan, mark=asterisk, smooth, ultra thick] table[col sep=comma, x=weight, y=voltage]{./data/measurement_quarter_bridge.csv};
+
+            \addlegendentry{($U_{ab}$) Messung}
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Plot der Spannungsmessung der Viertelbrücke.}
+    \label{fig:quarter-bridge-voltage-measurement}
+\end{figure}

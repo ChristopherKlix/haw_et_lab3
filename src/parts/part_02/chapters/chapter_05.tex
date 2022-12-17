@@ -1,6 +1,12 @@
 \chapter[Wägeeinrichtung (Vollbrücke)]{Aufbau einer Wägeeinrichtung mit dem Biegestab (Vollbrücke)}
 
-\lipsum[1]
+Im folgenden Versuch wird durch einen parallel geschalteten Widerstand \( R_a \)
+bei einer Wheatstone-Brückenschaltung der Nullpunktfehler kompensiert
+und so ein exakter Nullabgleich ermöglicht.
+Dieser Fehler tritt meist bei Vollbrücken auf, die im Ausschlagverfahren betrieben werden,
+bedingt durch die Toleranten der Widerstände.
+Die Versorgungspannung \( U_0 \) wird wieder auf \( 6\si{\volt} \) eingestellt
+und die Brückenspannung \( U_{ab} \) wird mit dem Digitalmultimeter \textit{METRAHit TECH} gemessen.
 
 \begin{figure}[!h]\centering
     \vspace*{0.7cm}
@@ -11,7 +17,7 @@
     (0,6) to[short, -*] (6,6)
           to[variable resistor, l=$R_1$] (6,3)
 
-    (6,6) to[short, -*] (12,6)
+    (6,6) to[short, -] (12,6)
           to[variable resistor, l=$R_3$] (12,3)
 
     (6,3) to[short, *-o] (7,3)
@@ -24,6 +30,10 @@
     (6,3) to[variable resistor, l=$R_2$] (6,0)
     (12,3) to[variable resistor, l=$R_4$] (12,0)
 
+    (12,3) to[short, -] (16,3)
+           to[variable resistor, l=$R_a$] (16,0)
+           to[short, -*] (12,0)
+
     (0,0) to[short, -*] (6,0)
           to[short, -*] (12,0)
 
@@ -33,9 +43,77 @@
     % (7.5,4) node[label={[font=\footnotesize]east:Long distance}] {}
     ;
     \end{circuitikz}
-    \caption{Wägeeinrichtung (Viertelbrücke)} \label{cir:quarter-bridge}
+    \caption{Wägeeinrichtung (Vollbrücke)} \label{cir:full-bridge}
 \end{figure}
 
-\lipsum[1]
-
 \section[Messung]{Messung}
+
+Mit Hilfe einer Präzisions-Widerstandsdekade ist der Widerstand \( R_a \)
+so einzustellen das die Ausgleichsbedingung \( U_{ab} = 0 \si{\volt} \) erfüllt ist.
+Um den richtigen Widerstand zu finden zu dem \( R_a \) parallel geschalten werden muss,
+wird geschaut bei welchem Widerstand die Anzeige einen kleinen Ausschlag
+oder einen Polaritätswechsel durch den Nulldurchgang anzeigt.
+Im nächsten Schritt wird am freischwingenden Ende des Biegebalkens die Last erhöht
+und parallel dazu die Brückenspannung \( U_{ab} \) mit dem Digitalmultimeter erfasst.
+
+Bei der zweiten Messung wird die Versorgungspannung so gewählt,
+dass die Brückenspannung \( U_{ab} \) proportional zu der angehängten Last steigt.
+Diese Spannung wurde durch ausprobieren iterativ bestimmt.
+
+\section[Messdaten]{Messdaten}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{rrr}
+        \toprule
+            ~                 & \multicolumn{1}{c}{METRAHit TECH}    \\
+            ~                 & \multicolumn{1}{c}{($U_{ab}$) Voltage}      \\
+        \midrule
+              0\si{\gram}      & -0.0005\si{\volt}  \\
+            100\si{\gram}      & -0.0015\si{\volt}  \\
+            200\si{\gram}      & -0.0024\si{\volt}  \\
+            300\si{\gram}      & -0.0033\si{\volt}  \\
+            400\si{\gram}      & -0.0043\si{\volt} \\
+            500\si{\gram}      & -0.0052\si{\volt} \\
+            ~ & ~ \\
+        \bottomrule
+        \end{tabular}
+    \caption{Messdaten der Vollbrücke bei Belastung des Biegebalkens} \label{tab:full-bridge-voltage-measurement}
+\end{table}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{rrr}
+        \toprule
+            ~ & \multicolumn{1}{c}{METRAHit TECH} & \multicolumn{1}{c}{Source} \\
+            ~ & \multicolumn{1}{c}{($U_{ab}$) Voltage} & \multicolumn{1}{c}{($U_{0}$) Voltage} \\
+        \midrule
+            100 \si{\gram} & 0.0014 \si{\volt} & 5.820 \si{\volt} \\
+            200 \si{\gram} & 0.0023 \si{\volt} & 5.820 \si{\volt} \\
+            300 \si{\gram} & 0.0032 \si{\volt} & 5.820 \si{\volt} \\
+            400 \si{\gram} & 0.0041 \si{\volt} & 5.820 \si{\volt} \\
+            500 \si{\gram} & 0.0050 \si{\volt} & 5.820 \si{\volt} \\
+            ~ & ~ \\
+        \bottomrule
+        \end{tabular}
+    \caption{Messdaten der Vollbrücke bei Anpassung von \(U_0\)} \label{tab:full-bridge-voltage-adjustment}
+\end{table}
+
+\section[Auswertung]{Auswertung}
+
+Die systematische Erhöhung der Belastung führt zu einem steigenden Widerstand \( R_1 \),
+weshalb sich auch die Brückenspannung \( U_{ab} \) erhöht.
+Die Brückenempfindlichkeit ist mit
+\begin{align}
+    E_0 &= 0.00214 \si{\volt\per\ohm}
+\end{align}
+eher gering, da der Widerstand \( R_1 \) relativ hoch ist
+und die Eingangsspannung \( U = 6 \si{\volt} \) gering ist.
+Die Brückenempfindlichkeit ist somit unabhängig von dem eingesetzten Gewicht
+und der dadurch resultierenden Widerstandeserhöhung.
+
+In einer zusätzlichen Simulation mit falstad.com Abb XYZ
+- unter Optimal Bedingungen ohne Messfehler und Widerstandstoleranzen -
+wurden die Messergebnisse näherungsweise überprüft.
+Der Widerstandwert für \( R_1 \) liegt bei \( 701 \si{\ohm} \) (\( 500g \)).
+Die Brückenspannung \( U_{ab} \) beträgt \( -1.249 \si{\milli\volt} \).
