@@ -123,3 +123,42 @@ Die Empfindlichkeit der Brücke wurde für \( m = 500 \si{\gram} \) errechnet.
     \caption{Plot der Spannungsmessung der Viertelbrücke.}
     \label{fig:quarter-bridge-voltage-measurement}
 \end{figure}
+
+\section[Auswertung]{Auswertung}
+
+Die systematische Erhöhung der Belastung führt zu einem steigenden Widerstand \( R_1 \),
+weshalb sich auch die Brückenspannung \( U_{ab} \) erhöht.
+Die Brückenempfindlichkeit ist mit
+\begin{align}
+    E_0 &= 0.00214 \si{\volt\per\ohm}
+\end{align}
+eher gering, da der Widerstand \( R_1 \) relativ hoch ist
+und die Eingangsspannung \( U = 6 \si{\volt} \) gering ist.
+Die Brückenempfindlichkeit ist somit unabhängig von dem eingesetzten Gewicht
+und der dadurch resultierenden Widerstandeserhöhung.
+\subsection[Simulation]{Simulation}
+In einer zusätzlichen Simulation mit falstad.com
+- unter Optimal-Bedingungen ohne Messfehler und Widerstandstoleranzen -
+wurden die Messergebnisse näherungsweise überprüft.
+Der Widerstandswert für \( R_1 \) bei \( 500 \si{\gram} \) wurde 
+approximiert, da kein direkter Messwert vor lag.
+
+Da:
+\begin{alignat*}{3}
+    & R_1 \quad &&\text{bei} \quad 0g   &&= 700.7 \si{\ohm} \\
+    & R_1 \quad &&\text{bei} \quad 200g &&= 700.8 \si{\ohm}
+\end{alignat*}
+wird bei ansatzweiser linearer interpolation
+\begin{alignat*}{3}
+    & R_1 \quad &&\text{bei} \quad 500g &&\approx 701 \si{\ohm}
+\end{alignat*}
+liegen.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./figs/04_falstad_black.png}
+    \caption{Simulation der Viertelbrücke.}
+    \label{fig:quarter-bridge-simulation}
+\end{figure}
+
+Die Brückenspannung \( U_{ab} \) beträgt \( -1.449 \si{\milli\volt} \approx -0.0014 \si{\volt} \).

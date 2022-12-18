@@ -104,21 +104,22 @@ Diese Spannung wurde durch ausprobieren iterativ bestimmt.
     \caption{Messdaten der Vollbrücke bei Anpassung von \(U_0\)} \label{tab:full-bridge-voltage-adjustment}
 \end{table}
 
+\newpage
+
 \section[Auswertung]{Auswertung}
-
-Die systematische Erhöhung der Belastung führt zu einem steigenden Widerstand \( R_1 \),
-weshalb sich auch die Brückenspannung \( U_{ab} \) erhöht.
-Die Brückenempfindlichkeit ist mit
-\begin{align}
-    E_0 &= 0.00214 \si{\volt\per\ohm}
-\end{align}
-eher gering, da der Widerstand \( R_1 \) relativ hoch ist
-und die Eingangsspannung \( U = 6 \si{\volt} \) gering ist.
-Die Brückenempfindlichkeit ist somit unabhängig von dem eingesetzten Gewicht
-und der dadurch resultierenden Widerstandeserhöhung.
-
-In einer zusätzlichen Simulation mit falstad.com Abb XYZ
-- unter Optimal Bedingungen ohne Messfehler und Widerstandstoleranzen -
-wurden die Messergebnisse näherungsweise überprüft.
-Der Widerstandwert für \( R_1 \) liegt bei \( 701 \si{\ohm} \) (\( 500g \)).
-Die Brückenspannung \( U_{ab} \) beträgt \( -1.249 \si{\milli\volt} \).
+Ein Brückengleichgewicht kann bereits mit einem sehr geringen Strom
+hergestellt werden, weshalb ein sehr großer Widerstand \( R_a = 1.1 \si{\mega\ohm} \) benötigt wird,
+um einen Nullabgleich zu erzielen.
+Zu sehen ist, dass die Spannung \( U_{ab} \) bei zunehmender Belastung steigt.
+Dies ist auf die oben beschriebene Widerstandsveränderung
+der Dehnmessstreifen durch Verformung des Messstreifens
+im Dehnungsmessstreifen zurückzuführen.
+Die Empfindlichkeit \( E_0 \) entspricht
+\begin{align*}
+    E_0 &= \frac{ U_0 }{ R_1 } = 0.0085 \si{\volt\per\ohm} \\
+    \text{mit} \quad U_0 &= 6 \si{\volt} \\
+    \text{und} \quad R_1 &= 700.7 \si{\ohm}
+\end{align*}
+wobei \( R_1 \) dem Gemessenen Widerstand des Dehnmessstreifens aus Versuch 1 entspricht.
+Zu sehen ist das bei einer Vollbrücke die Empfindlichkeit 4mal so hoch ist wie bei einer Viertelbrücke, daraus kann man schließen das mit einer Vollbrücke eine präzisere Wage konstruiert werden kann.
+Die Empfindlichkeit ist nicht von der angehangenen Belastung abhängig.
